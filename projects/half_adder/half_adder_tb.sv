@@ -32,11 +32,11 @@ HALF_ADDER dut (a, b, sum, carry);
         end
             
     always@(a, b, carry, sum, error)
-        if(!error) $display("Time = %0d\t inputs: a = %b\t b = %b\t output: sum = %b carry: %b", $time, a, b, sum, carry); // using %0d to take out extra spaces
+        if(!error) $display("Time = %0d\t inputs: a = %b\t b = %b\t output: sum = %b\t carry = %b", $time, a, b, sum, carry); // using %0d to take out extra spaces
 
         else
             begin
-                $error("Test fails at time = %0d\t inputs: a = %b\t b = %b\t output: sum = %b carry: %b", $time, a, b, sum, carry); // using %0d to take out extra spaces
+                $error("Test fails at time = %0d\t inputs: a = %b\t b = %b\t output: sum = %b\t carry = %b", $time, a, b, sum, carry); // using %0d to take out extra spaces
                 error = 0;
             end
 
