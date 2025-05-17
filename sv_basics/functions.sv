@@ -2,6 +2,7 @@ module functions();
 
 int result, z;
 
+// Functions have return value capability
 function int calculate (int a = 8, b); // parameter b follows a in type; default type is logic if not provided
     return a + b;
 endfunction
