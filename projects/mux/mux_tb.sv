@@ -30,11 +30,11 @@ MUX dut(in, select, out);
         end
 
     always@(in, select, out, error)
-        if(!error) $display("Time = %0d\t inputs: in = %b\t select = %b\t output: out = %b\t", $time, in, select, out); // using %0d to take out extra spaces
+        if(!error) $display("Time = %0d\t inputs: in = %b\t select = %b\t output: out = %b\t", $time, in, select, out);
 
         else
             begin
-                $error("Test fails at time = %0d\t inputs: in = %b\t select = %b\t output: out = %b\t", $time, in, select, out); // using %0d to take out extra spaces
+                $error("Test fails at time = %0d\t inputs: in = %b\t select = %b\t output: out = %b\t", $time, in, select, out);
                 error = 0;
             end
 
@@ -78,12 +78,12 @@ MUX2 dut(in0, in1, in2, in3, select2, out2);
 
     always@(in0, in1, in2, in3, select2, out2, error2)
         if(!error2) $display("Time = %0d\t inputs: in0 = %b\t in1 = %b\t in2 = %b\t in3 = %b\t select2 = %b\t output: out2 = %b\t", 
-                        $time, in0, in1, in2, in3, select2, out2); // using %0d to take out extra spaces
+                        $time, in0, in1, in2, in3, select2, out2);
 
         else
             begin
                 $error("Test fails at time = %0d\t inputs: in0 = %b\t in1 = %b\t in2 = %b\t in3 = %b\t select2 = %b\t output: out2 = %b\t", 
-                        $time, in0, in1, in2, in3, select2, out2); // using %0d to take out extra spaces
+                        $time, in0, in1, in2, in3, select2, out2);
                 error2 = 0;
             end
 
