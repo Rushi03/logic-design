@@ -1,0 +1,14 @@
+# Read the SystemVerilog design files
+read_verilog -sv full_adder.sv
+
+# Elaborate the design and specify the top module
+hierarchy -top FULL_ADDER
+
+# Perform generic synthesis optimizations
+synth -top FULL_ADDER
+
+# Clean up and optimize further
+clean
+
+# Write the synthesized Verilog netlist
+write_verilog full_adder_synth.sv

@@ -1,0 +1,14 @@
+# Read the SystemVerilog design files
+read_verilog -sv mux.sv
+
+# Elaborate the design and specify the top module
+hierarchy -top MUX
+
+# Perform generic synthesis optimizations
+synth -top MUX
+
+# Clean up and optimize further
+clean
+
+# Write the synthesized Verilog netlist
+write_verilog mux_synth.sv
