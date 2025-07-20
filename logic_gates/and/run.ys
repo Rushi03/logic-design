@@ -1,0 +1,14 @@
+# Read the SystemVerilog design files
+read_verilog -sv and.sv
+
+# Elaborate the design and specify the top module
+hierarchy -top AND
+
+# Perform generic synthesis optimizations
+synth -top AND
+
+# Clean up and optimize further
+clean
+
+# Write the synthesized Verilog netlist
+write_verilog and_synth.sv

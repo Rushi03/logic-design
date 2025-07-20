@@ -1,0 +1,14 @@
+# Read the SystemVerilog design files
+read_verilog -sv not.sv
+
+# Elaborate the design and specify the top module
+hierarchy -top NOT
+
+# Perform generic synthesis optimizations
+synth -top NOT
+
+# Clean up and optimize further
+clean
+
+# Write the synthesized Verilog netlist
+write_verilog not_synth.sv
