@@ -26,6 +26,8 @@ NOR dut(a, b, y); // device under test i.e. the gate we want to test
             b = 1;  // a = 1 
             #10ns;  // time delay
             assert(y === 0) else error = 1;
+
+            $finish;
         end
     
     always@(a, b, y, error)

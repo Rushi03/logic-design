@@ -18,6 +18,8 @@ NOT dut(a, y); // device under test i.e. the gate we want to test
             a = 1;
             #10ns;  // time delay
             assert(y === 0) else error = 1;
+
+            $finish;
         end
     
     always@(a, y, error)
