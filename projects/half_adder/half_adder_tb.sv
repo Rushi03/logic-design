@@ -29,6 +29,8 @@ HALF_ADDER dut (a, b, sum, carry);
             #10ns;
             assert(sum === 0) else error = 1;
             assert(carry === 1) else error = 1;
+
+            $finish;
         end
             
     always@(a, b, carry, sum, error)
