@@ -49,6 +49,8 @@ FULL_ADDER dut (a, b, c_in, sum, c_out);
             #10ns;
             assert(sum === 1) else error = 1;
             assert(c_out === 1) else error = 1;
+
+            $finish;
         end
     
     always@(a, b, c_in, sum, c_out)
