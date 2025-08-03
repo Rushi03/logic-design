@@ -1,0 +1,32 @@
+# Read modules from SystemVerilog file
+read_verilog -sv alu.sv
+
+# Elaborate design hierarchy
+hierarchy -check -top ALU
+
+# Translate processes to netlists
+proc
+
+# Perform simple optimizations 
+opt
+
+# Show the diagram
+show -format pdf -prefix alu_diagram
+
+# Mapping to the internal cell library
+techmap
+
+# Mapping flip-flops to NangateOpenCellLibrary_typical.lib
+# for e.g., always block
+# Change the library file accordingly
+dfflibmap -liberty /Users/Roosh/Documents/logic-design/NangateOpenCellLibrary_typical.lib
+
+# Mapping logic to NangateOpenCellLibrary_typical.lib
+# for e.g., assign block
+abc -liberty /Users/Roosh/Documents/logic-design/NangateOpenCellLibrary_typical.lib
+
+# Remove unused cells and wires
+clean
+
+# Write the current design to a SystemVerilog file
+write_verilog -sv alu_synth.sv
