@@ -1,6 +1,6 @@
 module ALU_tb();
 
-logic signed [15:0] a, b, result;
+logic signed [31:0] a, b, result;
 logic [3:0] opcode;
 logic zero, negative, carryout, overflow;
 int error = 0;
@@ -42,7 +42,7 @@ ALU dut(a, b, opcode, result, zero, negative, carryout, overflow);
             #10ns;
             assert(result === -25) else error = 1;
 
-            a = 32767; b = 1; opcode = 4'b0110;
+            a = 2147483647; b = 1; opcode = 4'b0110;
             $display("ADD result: ");
             #10ns;
             assert(result === -2) else error = 1;
