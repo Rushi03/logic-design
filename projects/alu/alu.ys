@@ -19,11 +19,11 @@ techmap
 # Mapping flip-flops to NangateOpenCellLibrary_typical.lib
 # for e.g., always block
 # Change the library file accordingly
-dfflibmap -liberty /Users/Roosh/Documents/logic-design/NangateOpenCellLibrary_typical.lib
+dfflibmap -liberty ~/Documents/logic-design/NangateOpenCellLibrary_typical.lib
 
 # Mapping logic to NangateOpenCellLibrary_typical.lib
 # for e.g., assign block
-abc -liberty /Users/Roosh/Documents/logic-design/NangateOpenCellLibrary_typical.lib
+abc -liberty ~/Documents/logic-design/NangateOpenCellLibrary_typical.lib
 
 # Remove unused cells and wires
 clean
