@@ -1,5 +1,5 @@
 // Cannot simultaneously run both testbench, comment one testbench while testing
-module MUX2_tb();
+module MUX_tb();
 
 logic[3:0] in0 = 4'b1100;
 logic[3:0] in1 = 4'b1101;
@@ -10,12 +10,12 @@ logic[3:0] out;
 int error = 0;
 
 
-MUX2 dut(in0, in1, in2, in3, select, out);
+MUX dut(in0, in1, in2, in3, select, out);
 
     initial
         begin
-            $dumpfile("mux2.vcd");
-            $dumpvars(0, MUX2_tb);
+            $dumpfile("mux.vcd");
+            $dumpvars(0, MUX_tb);
 
             select = 0;
             #10ns;

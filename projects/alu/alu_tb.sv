@@ -86,6 +86,8 @@ ALU dut(a, b, opcode, result, zero, negative, carryout, overflow);
             $display("Default result: ");
             #10ns;
             assert(result === 0) else error = 1;
+
+            $finish;
         end
 
         always@(a, b, result, error)

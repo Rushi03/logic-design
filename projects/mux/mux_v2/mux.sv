@@ -1,4 +1,4 @@
-module MUX2(input logic[3:0] in0, 
+module MUX(input logic[3:0] in0, 
             input logic[3:0] in1, 
             input logic[3:0] in2, 
             input logic[3:0] in3, 

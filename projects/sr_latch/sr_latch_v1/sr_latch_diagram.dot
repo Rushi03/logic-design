@@ -1,0 +1,21 @@
+digraph "SR_Latch" {
+label="SR_Latch";
+rankdir="LR";
+remincross=true;
+n3 [ shape=octagon, label="q", color="black", fontcolor="black"];
+n4 [ shape=octagon, label="q_not", color="black", fontcolor="black"];
+n5 [ shape=octagon, label="reset", color="black", fontcolor="black"];
+n6 [ shape=octagon, label="set", color="black", fontcolor="black"];
+c9 [ shape=record, label="{{<p7> A}|$2\n$not|{<p8> Y}}",  ];
+c10 [ shape=record, label="{{<p7> A}|$4\n$not|{<p8> Y}}",  ];
+c12 [ shape=record, label="{{<p7> A|<p11> B}|$1\n$or|{<p8> Y}}",  ];
+c13 [ shape=record, label="{{<p7> A|<p11> B}|$3\n$or|{<p8> Y}}",  ];
+c12:p8:e -> c9:p7:w [color="black", fontcolor="black", label=""];
+c13:p8:e -> c10:p7:w [color="black", fontcolor="black", label=""];
+c9:p8:e -> n3:w [color="black", fontcolor="black", label=""];
+n3:e -> c13:p11:w [color="black", fontcolor="black", label=""];
+c10:p8:e -> n4:w [color="black", fontcolor="black", label=""];
+n4:e -> c12:p11:w [color="black", fontcolor="black", label=""];
+n5:e -> c12:p7:w [color="black", fontcolor="black", label=""];
+n6:e -> c13:p7:w [color="black", fontcolor="black", label=""];
+}
