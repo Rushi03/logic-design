@@ -44,21 +44,21 @@ ALU dut(a, b, opcode, result, zero, negative, carryout, overflow);
             #10ns;
             assert(result === -25) else error = 1;
 
-            if (WIDTH == 32)
+            if(WIDTH == 32)
                 begin
                     a = 2147483647; b = 1; opcode = 4'b0110;
                     $display("ADD result: ");
                     #10ns;
                     assert(result === -2147483648) else error = 1;
                 end
-            else if (WIDTH == 16) 
+            else if(WIDTH == 16) 
                 begin
                     a = 32767; b = 1; opcode = 4'b0110;
                     $display("ADD result: ");
                     #10ns;
                     assert(result === -32768) else error = 1;
                 end
-            else if (WIDTH == 8) 
+            else if(WIDTH == 8) 
                 begin
                     a = 127; b = 1; opcode = 4'b0110;
                     $display("ADD result: ");
