@@ -1,6 +1,8 @@
 module ALU_tb();
 
-logic signed [31:0] a, b, result;
+parameter WIDTH = 32;                   // Width can be 8, 16, 32
+
+logic signed [WIDTH-1:0] a, b, result;
 logic [3:0] opcode;
 logic zero, negative, carryout, overflow;
 int error = 0;
@@ -42,10 +44,32 @@ ALU dut(a, b, opcode, result, zero, negative, carryout, overflow);
             #10ns;
             assert(result === -25) else error = 1;
 
-            a = 2147483647; b = 1; opcode = 4'b0110;
-            $display("ADD result: ");
-            #10ns;
-            assert(result === -2) else error = 1;
+            if (WIDTH == 32)
+                begin
+                    a = 2147483647; b = 1; opcode = 4'b0110;
+                    $display("ADD result: ");
+                    #10ns;
+                    assert(result === -2147483648) else error = 1;
+                end
+            else if (WIDTH == 16) 
+                begin
+                    a = 32767; b = 1; opcode = 4'b0110;
+                    $display("ADD result: ");
+                    #10ns;
+                    assert(result === -32768) else error = 1;
+                end
+            else if (WIDTH == 8) 
+                begin
+                    a = 127; b = 1; opcode = 4'b0110;
+                    $display("ADD result: ");
+                    #10ns;
+                    assert(result === -128) else error = 1;
+                end
+            else
+                begin
+                    error = 1;
+                    $error("Currently not a valid data width.");
+                end
 
             a = 5; b = 4; opcode = 4'b0111;
             $display("SUB result: ");
