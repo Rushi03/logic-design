@@ -1,5 +1,5 @@
-digraph "MUX" {
-label="MUX";
+digraph "mux" {
+label="mux";
 rankdir="LR";
 remincross=true;
 n1 [ shape=octagon, label="in", color="black", fontcolor="black"];

@@ -1,14 +1,14 @@
-module SR_Latch_tb();
+module sr_latch_tb();
 
 logic set, reset, q, q_not;
 int error = 0;
 
-SR_Latch dut (set, reset, q, q_not);
+sr_latch dut (set, reset, q, q_not);
 
     initial
         begin
             $dumpfile("sr_latch.vcd");
-            $dumpvars(0, SR_Latch_tb);
+            $dumpvars(0, sr_latch_tb);
 
             set = 0; reset = 0; 
             #10ns;

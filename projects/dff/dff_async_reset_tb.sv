@@ -1,4 +1,4 @@
-module dff_tb();
+module dff_async_reset_tb();
 
 logic d, clk, reset_n, q;
 int error = 0;
@@ -10,7 +10,7 @@ always #5ns clk = ~clk;
     initial 
         begin
             $dumpfile("dff.vcd");
-            $dumpvars(0, dff_tb);
+            $dumpvars(0, dff_async_reset_tb);
 
             clk = 0; d = 0; reset_n = 0;
             

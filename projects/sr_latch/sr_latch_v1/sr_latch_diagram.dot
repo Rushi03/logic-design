@@ -1,5 +1,5 @@
-digraph "SR_Latch" {
-label="SR_Latch";
+digraph "sr_latch" {
+label="sr_latch";
 rankdir="LR";
 remincross=true;
 n3 [ shape=octagon, label="q", color="black", fontcolor="black"];

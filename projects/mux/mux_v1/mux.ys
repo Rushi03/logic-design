@@ -2,7 +2,7 @@
 read_verilog -sv mux.sv
 
 # Elaborate design hierarchy
-hierarchy -check -top MUX
+hierarchy -check -top mux
 
 # Translate processes to netlists
 proc

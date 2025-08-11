@@ -1,5 +1,5 @@
-digraph "HALF_ADDER" {
-label="HALF_ADDER";
+digraph "half_adder" {
+label="half_adder";
 rankdir="LR";
 remincross=true;
 n1 [ shape=octagon, label="a", color="black", fontcolor="black"];

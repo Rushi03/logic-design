@@ -1,5 +1,5 @@
-digraph "ALU" {
-label="ALU";
+digraph "alu" {
+label="alu";
 rankdir="LR";
 remincross=true;
 n37 [ shape=octagon, label="a", color="black", fontcolor="black"];

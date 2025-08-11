@@ -1,16 +1,16 @@
-module MUX_tb();
+module mux_tb();
 
 logic[3:0] in = 4'b1001; 
 logic[1:0] select;
 logic out;
 int error = 0;
 
-MUX dut(in, select, out);
+mux dut(in, select, out);
 
     initial
         begin
             $dumpfile("mux.vcd");
-            $dumpvars(0, MUX_tb);
+            $dumpvars(0, mux_tb);
 
             select = 0;
             #10ns;

@@ -1,5 +1,5 @@
 # Read modules from SystemVerilog file
-read_verilog -sv dff.sv
+read_verilog -sv dff_async_reset.sv
 
 # Elaborate design hierarchy
 hierarchy -check -top dff_async_reset
@@ -11,7 +11,7 @@ proc
 opt
 
 # Show the diagram
-show -format pdf -prefix dff_diagram
+show -format pdf -prefix dff_async_reset_diagram
 
 # Mapping to the internal cell library
 techmap
@@ -29,4 +29,4 @@ abc -liberty ~/Documents/logic-design/NangateOpenCellLibrary_typical.lib
 clean
 
 # Write the current design to a SystemVerilog file
-write_verilog -sv dff_synth.sv
+write_verilog -sv dff_async_reset_synth.sv
