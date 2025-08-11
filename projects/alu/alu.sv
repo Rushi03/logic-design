@@ -1,4 +1,4 @@
-module ALU #(parameter WIDTH = 32)                                  // Width can be 8, 16, 32
+module alu #(parameter WIDTH = 32)                                  // Width can be 8, 16, 32
           (input logic [WIDTH-1:0] a,
            input logic [WIDTH-1:0] b,
            input logic [3:0] opcode,

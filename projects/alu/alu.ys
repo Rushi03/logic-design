@@ -2,7 +2,7 @@
 read_verilog -sv alu.sv
 
 # Elaborate design hierarchy
-hierarchy -check -top ALU
+hierarchy -check -top alu
 
 # Translate processes to netlists
 proc

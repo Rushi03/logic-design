@@ -1,14 +1,14 @@
-module FULL_ADDER_tb();
+module full_adder_tb();
 
 logic a, b, c_in, sum, c_out;
 int error = 0;
 
-FULL_ADDER dut (a, b, c_in, sum, c_out);
+full_adder dut (a, b, c_in, sum, c_out);
 
     initial
         begin
             $dumpfile("full_adder.vcd");
-            $dumpvars(0, FULL_ADDER_tb);
+            $dumpvars(0, full_adder_tb);
 
             a = 0; b = 0; c_in = 0;
             #10ns;

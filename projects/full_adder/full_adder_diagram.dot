@@ -1,5 +1,5 @@
-digraph "FULL_ADDER" {
-label="FULL_ADDER";
+digraph "full_adder" {
+label="full_adder";
 rankdir="LR";
 remincross=true;
 n4 [ shape=octagon, label="a", color="black", fontcolor="black"];

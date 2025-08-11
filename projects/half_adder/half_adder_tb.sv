@@ -1,14 +1,14 @@
-module HALF_ADDER_tb();
+module half_adder_tb();
 
 logic a, b, sum, carry;
 int error = 0;
 
-HALF_ADDER dut (a, b, sum, carry);
+half_adder dut (a, b, sum, carry);
 
     initial 
         begin
             $dumpfile("half_adder.vcd");
-            $dumpvars(0, HALF_ADDER_tb);
+            $dumpvars(0, half_adder_tb);
 
             a = 0; b = 0;
             #10ns;

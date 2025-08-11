@@ -2,7 +2,7 @@
 
 (* top =  1  *)
 (* src = "half_adder.sv:1.1-6.10" *)
-module HALF_ADDER(a, b, sum, carry);
+module half_adder(a, b, sum, carry);
   (* src = "half_adder.sv:1.31-1.32" *)
   input a;
   wire a;

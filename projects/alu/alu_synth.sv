@@ -3,7 +3,7 @@
 (* dynports =  1  *)
 (* top =  1  *)
 (* src = "alu.sv:1.1-56.10" *)
-module ALU(a, b, opcode, result, zero, negative, carryout, overflow);
+module alu(a, b, opcode, result, zero, negative, carryout, overflow);
   wire _00000_;
   wire _00001_;
   wire _00002_;

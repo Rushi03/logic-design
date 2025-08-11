@@ -2,7 +2,7 @@
 
 (* top =  1  *)
 (* src = "mux.sv:1.1-5.10" *)
-module MUX(in, select, out);
+module mux(in, select, out);
   wire _0_;
   wire _1_;
   (* src = "mux.sv:1.29-1.31" *)

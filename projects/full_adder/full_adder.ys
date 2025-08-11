@@ -2,7 +2,7 @@
 read_verilog -sv full_adder.sv
 
 # Elaborate design hierarchy
-hierarchy -check -top FULL_ADDER
+hierarchy -check -top full_adder
 
 # Translate processes to netlists
 proc

@@ -2,7 +2,7 @@
 read_verilog -sv sr_latch.sv
 
 # Elaborate design hierarchy
-hierarchy -check -top SR_Latch
+hierarchy -check -top sr_latch
 
 # Translate processes to netlists
 proc

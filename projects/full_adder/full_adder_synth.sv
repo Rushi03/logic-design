@@ -2,7 +2,7 @@
 
 (* top =  1  *)
 (* src = "full_adder.sv:1.1-6.10" *)
-module FULL_ADDER(a, b, c_in, sum, c_out);
+module full_adder(a, b, c_in, sum, c_out);
   wire _0_;
   wire _1_;
   wire _2_;

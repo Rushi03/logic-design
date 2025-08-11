@@ -1,4 +1,4 @@
-module ALU_tb();
+module alu_tb();
 
 parameter WIDTH = 32;                   // Width can be 8, 16, 32
 
@@ -7,12 +7,12 @@ logic [3:0] opcode;
 logic zero, negative, carryout, overflow;
 int error = 0;
 
-ALU dut(a, b, opcode, result, zero, negative, carryout, overflow);
+alu dut(a, b, opcode, result, zero, negative, carryout, overflow);
 
     initial
         begin
             $dumpfile("alu.vcd");
-            $dumpvars(0, ALU_tb);
+            $dumpvars(0, alu_tb);
 
             a = 1; b = 0; opcode = 4'b0000;
             $display("AND result: ");
