@@ -19,22 +19,22 @@ module palindrome3b(
     output logic palindrome_o
 );
 
-logic[1:0] count_q;         // current count
-logic[1:0] nxt_count;       // next count
-logic[1:0] shft_reg_q;      // current register
-logic[1:0] nxt_shft_reg;    // next register
+    logic[1:0] count_q;         // current count
+    logic[1:0] nxt_count;       // next count
+    logic[1:0] shft_reg_q;      // current register
+    logic[1:0] nxt_shft_reg;    // next register
 
-always_ff @(posedge clk or posedge reset)
-    if (reset) begin
-        count_q <= 2'b00;
-        shft_reg_q <= 2'b00;
-    end else begin
-        count_q <= nxt_count;
-        shft_reg_q <= nxt_shft_reg;
-    end
+    always_ff @(posedge clk or posedge reset)
+        if (reset) begin
+            count_q <= 2'b00;
+            shft_reg_q <= 2'b00;
+        end else begin
+            count_q <= nxt_count;
+            shft_reg_q <= nxt_shft_reg;
+        end
 
-assign nxt_count = count_q[1] ? count_q : count_q[0] + 2'b01;
-assign nxt_shft_reg = {shft_reg_q[0], x_i};
-assign palindrome_o = (x_i == shft_reg_q[1]) & count_q[1];
+    assign nxt_count = count_q[1] ? count_q : count_q[0] + 2'b01;
+    assign nxt_shft_reg = {shft_reg_q[0], x_i};
+    assign palindrome_o = (x_i == shft_reg_q[1]) & count_q[1];
 
 endmodule

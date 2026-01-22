@@ -25,38 +25,38 @@ module atomic_counter(
     output logic ack_o
 );
 
-logic[63:0] counter;
-logic[63:0] counter_q;
-logic atomic_q;
-logic req_q;
-logic[31:0] counter_msb;
+    logic[63:0] counter;
+    logic[63:0] counter_q;
+    logic atomic_q;
+    logic req_q;
+    logic[31:0] counter_msb;
 
-always_ff @(posedge clk or posedge reset)
-    if (reset)
-        counter_q <= 64'h0;
-    else
-        counter_q <= counter;
+    always_ff @(posedge clk or posedge reset)
+        if (reset)
+            counter_q <= 64'h0;
+        else
+            counter_q <= counter;
 
-always_ff @(posedge clk or posedge reset)
-    if (reset) begin
-        atomic_q <= 1'b0;
-        req_q <= 1'b0;
-    end
-    else begin
-        atomic_q <= atomic_i;
-        req_q <= req_i;
-    end
+    always_ff @(posedge clk or posedge reset)
+        if (reset) begin
+            atomic_q <= 1'b0;
+            req_q <= 1'b0;
+        end
+        else begin
+            atomic_q <= atomic_i;
+            req_q <= req_i;
+        end
 
-assign counter = counter_q[63:0] + {{63{1'b0}}, trig_i};
+    assign counter = counter_q[63:0] + {{63{1'b0}}, trig_i};
 
-always_ff @(posedge clk or posedge reset)
-    if (reset)
-        counter_msb <= 32'h0;
-    else if (atomic_q)
-        counter_msb <= counter_q[63:32];
+    always_ff @(posedge clk or posedge reset)
+        if (reset)
+            counter_msb <= 32'h0;
+        else if (atomic_q)
+            counter_msb <= counter_q[63:32];
 
-assign ack_o = req_q;
-assign counter_o = req_q ? (atomic_q ? counter_q[31:0] : counter_msb[31:0]) : 32'h0;
+    assign ack_o = req_q;
+    assign counter_o = req_q ? (atomic_q ? counter_q[31:0] : counter_msb[31:0]) : 32'h0;
 
 
 endmodule

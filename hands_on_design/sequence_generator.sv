@@ -18,23 +18,23 @@ module seq_generator(
     output logic[31:0] seq_o
 );
 
-logic[31:0] seq_t1;
-logic[31:0] seq_t2;
-logic[31:0] seq_t3;
-logic[31:0] nxt_seq;
+    logic[31:0] seq_t1;
+    logic[31:0] seq_t2;
+    logic[31:0] seq_t3;
+    logic[31:0] nxt_seq;
 
-always_ff @(posedge clk or posedge reset)
-    if (reset) begin
-        seq_t1 <= 32'h1;
-        seq_t2 <= 32'h1;
-        seq_t3 <= 32'h0;
-    end else begin
-        seq_t1 <= nxt_seq[31:0];
-        seq_t2 <= seq_t1[31:0];
-        seq_t3 <= seq_t2[31:0];
-    end
+    always_ff @(posedge clk or posedge reset)
+        if (reset) begin
+            seq_t1 <= 32'h1;
+            seq_t2 <= 32'h1;
+            seq_t3 <= 32'h0;
+        end else begin
+            seq_t1 <= nxt_seq[31:0];
+            seq_t2 <= seq_t1[31:0];
+            seq_t3 <= seq_t2[31:0];
+        end
 
-assign nxt_seq = seq_t2[31:0] + seq_t3[31:0];
-assign seq_o = seq_t3;
+    assign nxt_seq = seq_t2[31:0] + seq_t3[31:0];
+    assign seq_o = seq_t3;
 
 endmodule

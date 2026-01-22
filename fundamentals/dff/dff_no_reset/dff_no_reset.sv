@@ -4,7 +4,7 @@ module dff_no_reset(
     output logic q_out
 );
 
-always_ff @(posedge clk)
-    q_out <= d_in;
+    always_ff @(posedge clk)
+        q_out <= d_in;
 
 endmodule

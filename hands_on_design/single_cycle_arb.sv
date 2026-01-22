@@ -21,19 +21,19 @@ module single_cycle_arbiter #(
     output logic[N-1:0] gnt_o
 );
 
-// Highest priority is port[0]
-// Port priority decreases as port increases
-logic[N-1:0] priority_req;
+    // Highest priority is port[0]
+    // Port priority decreases as port increases
+    logic[N-1:0] priority_req;
 
-// Highest prioirty
-assign priority_req[0] = 1'b0;
+    // Highest prioirty
+    assign priority_req[0] = 1'b0;
 
-// Assign priority to ports
-for (genvar i=0; i<N-1; i=i+1) begin
-    assign priority_req[i+1] = priority_req[i] | req_i[i];
-end
+    // Assign priority to ports
+    for (genvar i=0; i<N-1; i=i+1) begin
+        assign priority_req[i+1] = priority_req[i] | req_i[i];
+    end
 
-// Granted port
-assign gnt_o = req_i & ~priority_req;
+    // Granted port
+    assign gnt_o = req_i & ~priority_req;
  
 endmodule
