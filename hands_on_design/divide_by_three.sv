@@ -26,43 +26,43 @@ module divide_by_three(
 // FSM REM_1 - 0: {2a+1, 0} = 2(2a+1) = 4a+2, 1: {2a+1, 1} = 2(2a+1)+1 = 4a+3
 // FSM REM_2 - 0: {4a+2, 0} = 2(4a+2) = 8a+4, 1: {4a+2, 1} = 2(4a+2)+1 = 8a+5
 
-// Remainder 0 - 0, Remainder 1 - 1, Remainder 2 - 2
-type def {REM_0, REM_1, REM_2} state_t;
+    // Remainder 0 - 0, Remainder 1 - 1, Remainder 2 - 2
+    type def {REM_0, REM_1, REM_2} state_t;
 
-state_t state_q;
-state_t nxt_state;
+    state_t state_q;
+    state_t nxt_state;
 
-always_ff @(posedge clk or posedge reset)
-    if (reset)
-        state_q <= REM_0;
-    else    
-        state_q <= nxt_state;
+    always_ff @(posedge clk or posedge reset)
+        if (reset)
+            state_q <= REM_0;
+        else    
+            state_q <= nxt_state;
 
-always_comb begin
-    case (state_q)
-        div_o = 1'b0; 
-        REM_0:
-            if (x_i) begin
-                nxt_state = REM_1; // x_i = 1; 2(0)+1 % 3 = 1
-            end else begin
-                nxt_state = REM_0; // x_i = 0; 2(0) % 3 = 0
-                div_o = 1'b1;
-            end
-        REM_1:
-            if (x_i) begin
-                nxt_state = REM_0; // x_i = 1; 4(0)+3 % 3 = 0
-                div_o = 1'b1;
-            end else begin
-                nxt_state = REM_2; // x_i = 0; 4(0)+4 % 3 = 1
-            end
-        REM_2:
-            if (x_i) begin
-                nxt_state = REM_2; // x_i = 1; 8(0)+5 % 3 = 2
-            end else begin
-                nxt_state = REM_1; // x_i = 0; 8(0)+4 % 3 = 1
-            end
-        default: nxt_state <= REM_0;
-    endcase
-end
+    always_comb begin
+        case (state_q)
+            div_o = 1'b0; 
+            REM_0:
+                if (x_i) begin
+                    nxt_state = REM_1; // x_i = 1; 2(0)+1 % 3 = 1
+                end else begin
+                    nxt_state = REM_0; // x_i = 0; 2(0) % 3 = 0
+                    div_o = 1'b1;
+                end
+            REM_1:
+                if (x_i) begin
+                    nxt_state = REM_0; // x_i = 1; 4(0)+3 % 3 = 0
+                    div_o = 1'b1;
+                end else begin
+                    nxt_state = REM_2; // x_i = 0; 4(0)+4 % 3 = 1
+                end
+            REM_2:
+                if (x_i) begin
+                    nxt_state = REM_2; // x_i = 1; 8(0)+5 % 3 = 2
+                end else begin
+                    nxt_state = REM_1; // x_i = 0; 8(0)+4 % 3 = 1
+                end
+            default: nxt_state <= REM_0;
+        endcase
+    end
 
 endmodule
